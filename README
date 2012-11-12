@@ -1,0 +1,29 @@
+usage: ./ask -q QUESTION -a ANSWER_CHARS [-n]
+
+Options:
+  -q QUESTION, --question=QUESTION
+       Ask user QUESTION
+  -a ANSWER_CHARS, --answer-chars=ANSWER_CHARS
+       Use each character of ANSWER_CHARS as a valid answer to QUESTION
+  -n, --newline
+       Print a newline immediately after QUESTION and ANSWER_CHARS
+  -h, --help
+       Display this message and exit
+  -v, --version
+       Display version information and exit
+
+To obtain the answer given by the user, use the program's
+return code. For each given character of ANSWER_CHARS corresponds
+an integer value of 0-n.
+
+For example, if ANSWER_CHARS is the string "ynrq", valid return
+values would come to be y=0, n=1, r=2, and q=3.
+
+A negative return value indicates an error occurred.
+
+Example on the command line:
+   user@host$ ask -q "Would you like to continue" -a ynq
+   Would you like to continue? [y/n/q] q
+   user@host$ echo $?
+   2
+   user@host$
